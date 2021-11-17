@@ -1,0 +1,2454 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="http://srap.top.com/tools-powershell/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
+    
+    
+      
+        <title>PowerShell - 小蹊宝博客</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-36723568-3","mkdocs.org"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#powershell" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="小蹊宝博客" class="md-header__button md-logo" aria-label="小蹊宝博客" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            小蹊宝博客
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PowerShell
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://tim-xia.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    小蹊宝的github
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="小蹊宝博客" class="md-nav__button md-logo" aria-label="小蹊宝博客" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    小蹊宝博客
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://tim-xia.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    小蹊宝的github
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        工具
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="工具" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          工具
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools-markdown/" class="md-nav__link">
+        markdown画图工具
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools-putty/" class="md-nav__link">
+        Putty
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools-docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          PowerShell
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        PowerShell
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_1" class="md-nav__link">
+    认识PowerShell
+  </a>
+  
+    <nav class="md-nav" aria-label="认识PowerShell">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#powershell_2" class="md-nav__link">
+    PowerShell介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_3" class="md-nav__link">
+    PowerShell的快捷键
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_4" class="md-nav__link">
+    PowerShell的管道和重定向
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_5" class="md-nav__link">
+    PowerShell交互式
+  </a>
+  
+    <nav class="md-nav" aria-label="PowerShell交互式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    数学计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    执行外部命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmdlets" class="md-nav__link">
+    命令集cmdlets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    别名
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_6" class="md-nav__link">
+    PowerShell变量
+  </a>
+  
+    <nav class="md-nav" aria-label="PowerShell变量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#powershell_7" class="md-nav__link">
+    PowerShell定义变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    自动化变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    环境变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    驱动器变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_8" class="md-nav__link">
+    PowerShell变量的作用域
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_9" class="md-nav__link">
+    PowerShell变量的类型和强类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_10" class="md-nav__link">
+    PowerShell变量的幕后管理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_11" class="md-nav__link">
+    PowerShell数组和哈希表
+  </a>
+  
+    <nav class="md-nav" aria-label="PowerShell数组和哈希表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#powershell_12" class="md-nav__link">
+    PowerShell命令返回数组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_13" class="md-nav__link">
+    PowerShell命令创建数组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_14" class="md-nav__link">
+    PowerShell访问数组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_15" class="md-nav__link">
+    PowerShell数组的复制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    强类型数组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershellhash" class="md-nav__link">
+    PowerShell使用Hash表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_16" class="md-nav__link">
+    PowerShell管道
+  </a>
+  
+    <nav class="md-nav" aria-label="PowerShell管道">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    使用管道
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_17" class="md-nav__link">
+    PowerShell对象转为文本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_18" class="md-nav__link">
+    PowerShell对结果进行排序和分组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_19" class="md-nav__link">
+    PowerShell过滤管道结果
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_20" class="md-nav__link">
+    PowerShell分析和比较管道
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_21" class="md-nav__link">
+    PowerShell导出管道结果
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ets" class="md-nav__link">
+    拓展类型系统（ETS）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_22" class="md-nav__link">
+    PowerShell使用对象
+  </a>
+  
+    <nav class="md-nav" aria-label="PowerShell使用对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#powershell_23" class="md-nav__link">
+    PowerShell对象=属性+方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_24" class="md-nav__link">
+    PowerShell属性：描述对象是什么
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_25" class="md-nav__link">
+    PowerShell方法：描述对象能做什么
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_26" class="md-nav__link">
+    PowerShell条件判断
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_27" class="md-nav__link">
+    PowerShell循环
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_28" class="md-nav__link">
+    PowerShell函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_29" class="md-nav__link">
+    PowerShell脚本
+  </a>
+  
+    <nav class="md-nav" aria-label="PowerShell脚本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    使用脚本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_30" class="md-nav__link">
+    PowerShell学习网站
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        测试
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="测试" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          测试
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../test-tdd/" class="md-nav__link">
+        TDD
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        前端
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="前端" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          前端
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      <label class="md-nav__link" for="__nav_4_1">
+        语言
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="语言" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          语言
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../front-lan-markdown.md" class="md-nav__link">
+        markdown
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../front-lan-python/" class="md-nav__link">
+        python
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../front-lan-php.md" class="md-nav__link">
+        php
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../front-lan-js/" class="md-nav__link">
+        js
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../front-lan-jquery/" class="md-nav__link">
+        jquery
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        框架
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="框架" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          框架
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../front-frm-vuejs/" class="md-nav__link">
+        Vuejs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../front-frm-easyui.md" class="md-nav__link">
+        easyui
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../front-frm-jquery.md" class="md-nav__link">
+        jquery
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../front-frm-webuploader/" class="md-nav__link">
+        WebUploader
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../front-frm-weuiwork/" class="md-nav__link">
+        企业微信UI
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        后端
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="后端" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          后端
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      <label class="md-nav__link" for="__nav_5_1">
+        语言
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="语言" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          语言
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../back-lan-csharp.md" class="md-nav__link">
+        C#
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../back-lan-java.md" class="md-nav__link">
+        java
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../back-lan-c.md" class="md-nav__link">
+        C
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../back-lan-cplusplus.md" class="md-nav__link">
+        C++
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        框架
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="框架" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          框架
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../back-fram-mvc.md" class="md-nav__link">
+        MVC
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        数据库
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数据库" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          数据库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db-mysql.md" class="md-nav__link">
+        mysql
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db-sqlserver.md" class="md-nav__link">
+        sqlserver
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db-mongodb/" class="md-nav__link">
+        mongodb
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        拓展
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="拓展" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          拓展
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1" type="checkbox" id="__nav_7_1" >
+      
+      <label class="md-nav__link" for="__nav_7_1">
+        模式
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="模式" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          模式
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extend-mod-single.md" class="md-nav__link">
+        单例模式
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" type="checkbox" id="__nav_7_2" >
+      
+      <label class="md-nav__link" for="__nav_7_2">
+        算法
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="算法" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extend-al-sorted.md" class="md-nav__link">
+        排序算法
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_3" type="checkbox" id="__nav_7_3" >
+      
+      <label class="md-nav__link" for="__nav_7_3">
+        架构
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="架构" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          架构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extend-frw-javaframework/" class="md-nav__link">
+        Java架构
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extend-frw-consul/" class="md-nav__link">
+        Consol
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        其他
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="其他" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          其他
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../others-todolist-work/" class="md-nav__link">
+        TODO 工作
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../others-todolist/" class="md-nav__link">
+        TODO 规划
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../others-copyleft/" class="md-nav__link">
+        软件授权许可(copyleft)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../others-rss/" class="md-nav__link">
+        RSS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../others-board/" class="md-nav__link">
+        我的看板
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        业务学习
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="业务学习" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          业务学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../business-hr/" class="md-nav__link">
+        人事行政系统
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_1" class="md-nav__link">
+    认识PowerShell
+  </a>
+  
+    <nav class="md-nav" aria-label="认识PowerShell">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#powershell_2" class="md-nav__link">
+    PowerShell介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_3" class="md-nav__link">
+    PowerShell的快捷键
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_4" class="md-nav__link">
+    PowerShell的管道和重定向
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_5" class="md-nav__link">
+    PowerShell交互式
+  </a>
+  
+    <nav class="md-nav" aria-label="PowerShell交互式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    数学计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    执行外部命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmdlets" class="md-nav__link">
+    命令集cmdlets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    别名
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_6" class="md-nav__link">
+    PowerShell变量
+  </a>
+  
+    <nav class="md-nav" aria-label="PowerShell变量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#powershell_7" class="md-nav__link">
+    PowerShell定义变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    自动化变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    环境变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    驱动器变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_8" class="md-nav__link">
+    PowerShell变量的作用域
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_9" class="md-nav__link">
+    PowerShell变量的类型和强类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_10" class="md-nav__link">
+    PowerShell变量的幕后管理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_11" class="md-nav__link">
+    PowerShell数组和哈希表
+  </a>
+  
+    <nav class="md-nav" aria-label="PowerShell数组和哈希表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#powershell_12" class="md-nav__link">
+    PowerShell命令返回数组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_13" class="md-nav__link">
+    PowerShell命令创建数组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_14" class="md-nav__link">
+    PowerShell访问数组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_15" class="md-nav__link">
+    PowerShell数组的复制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    强类型数组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershellhash" class="md-nav__link">
+    PowerShell使用Hash表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_16" class="md-nav__link">
+    PowerShell管道
+  </a>
+  
+    <nav class="md-nav" aria-label="PowerShell管道">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    使用管道
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_17" class="md-nav__link">
+    PowerShell对象转为文本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_18" class="md-nav__link">
+    PowerShell对结果进行排序和分组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_19" class="md-nav__link">
+    PowerShell过滤管道结果
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_20" class="md-nav__link">
+    PowerShell分析和比较管道
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_21" class="md-nav__link">
+    PowerShell导出管道结果
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ets" class="md-nav__link">
+    拓展类型系统（ETS）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_22" class="md-nav__link">
+    PowerShell使用对象
+  </a>
+  
+    <nav class="md-nav" aria-label="PowerShell使用对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#powershell_23" class="md-nav__link">
+    PowerShell对象=属性+方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_24" class="md-nav__link">
+    PowerShell属性：描述对象是什么
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell_25" class="md-nav__link">
+    PowerShell方法：描述对象能做什么
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_26" class="md-nav__link">
+    PowerShell条件判断
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_27" class="md-nav__link">
+    PowerShell循环
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_28" class="md-nav__link">
+    PowerShell函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_29" class="md-nav__link">
+    PowerShell脚本
+  </a>
+  
+    <nav class="md-nav" aria-label="PowerShell脚本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    使用脚本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell_30" class="md-nav__link">
+    PowerShell学习网站
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <div class="toc">
+<ul>
+<li><a href="#powershell">PowerShell</a><ul>
+<li><a href="#powershell_1">认识PowerShell</a><ul>
+<li><a href="#powershell_2">PowerShell介绍</a></li>
+<li><a href="#powershell_3">PowerShell的快捷键</a></li>
+<li><a href="#powershell_4">PowerShell的管道和重定向</a></li>
+</ul>
+</li>
+<li><a href="#powershell_5">PowerShell交互式</a><ul>
+<li><a href="#_1">数学计算</a></li>
+<li><a href="#_2">执行外部命令</a></li>
+<li><a href="#cmdlets">命令集cmdlets</a></li>
+<li><a href="#_3">别名</a></li>
+</ul>
+</li>
+<li><a href="#powershell_6">PowerShell变量</a><ul>
+<li><a href="#powershell_7">PowerShell定义变量</a></li>
+<li><a href="#_4">自动化变量</a></li>
+<li><a href="#_5">环境变量</a></li>
+<li><a href="#_6">驱动器变量</a></li>
+<li><a href="#powershell_8">PowerShell变量的作用域</a></li>
+<li><a href="#powershell_9">PowerShell变量的类型和强类型</a></li>
+<li><a href="#powershell_10">PowerShell变量的幕后管理</a></li>
+</ul>
+</li>
+<li><a href="#powershell_11">PowerShell数组和哈希表</a><ul>
+<li><a href="#powershell_12">PowerShell命令返回数组</a></li>
+<li><a href="#powershell_13">PowerShell命令创建数组</a></li>
+<li><a href="#powershell_14">PowerShell访问数组</a></li>
+<li><a href="#powershell_15">PowerShell数组的复制</a></li>
+<li><a href="#_7">强类型数组</a></li>
+<li><a href="#powershellhash">PowerShell使用Hash表</a></li>
+</ul>
+</li>
+<li><a href="#powershell_16">PowerShell管道</a><ul>
+<li><a href="#_8">使用管道</a></li>
+<li><a href="#powershell_17">PowerShell对象转为文本</a></li>
+<li><a href="#powershell_18">PowerShell对结果进行排序和分组</a></li>
+<li><a href="#powershell_19">PowerShell过滤管道结果</a></li>
+<li><a href="#powershell_20">PowerShell分析和比较管道</a></li>
+<li><a href="#powershell_21">PowerShell导出管道结果</a></li>
+<li><a href="#ets">拓展类型系统（ETS）</a></li>
+</ul>
+</li>
+<li><a href="#powershell_22">PowerShell使用对象</a><ul>
+<li><a href="#powershell_23">PowerShell对象=属性+方法</a></li>
+<li><a href="#powershell_24">PowerShell属性：描述对象是什么</a></li>
+<li><a href="#powershell_25">PowerShell方法：描述对象能做什么</a></li>
+</ul>
+</li>
+<li><a href="#powershell_26">PowerShell条件判断</a></li>
+<li><a href="#powershell_27">PowerShell循环</a></li>
+<li><a href="#powershell_28">PowerShell函数</a></li>
+<li><a href="#powershell_29">PowerShell脚本</a><ul>
+<li><a href="#_9">使用脚本</a></li>
+<li><a href="#_10"></a></li>
+</ul>
+</li>
+<li><a href="#powershell_30">PowerShell学习网站</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="powershell">PowerShell<a class="headerlink" href="#powershell" title="Permanent link">&para;</a></h1>
+<h2 id="powershell_1">认识PowerShell<a class="headerlink" href="#powershell_1" title="Permanent link">&para;</a></h2>
+<h3 id="powershell_2">PowerShell介绍<a class="headerlink" href="#powershell_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Powershell 是运行在windows机器上实现系统和应用程序管理自动化的命令行脚本环境。你可以把它看成是命令行提示符cmd.exe的扩充，不对，应当是颠覆。 powershell需要.NET环境的支持，同时支持.NET对象。微软之所以将Powershell 定位为Power，并不是夸大其词，因为它完全支持对象。其可读性，易用性，可以位居当前所有shell之首。 当前powershell有四版本，分别为1.0，2.0，3.0 ,4.0</li>
+<li>如果您的系统是window7或者Windows Server 2008，那么PowerShell 2.0已经内置了，可以升级为3.0，4.0。
+如果您的系统是Windows 8 或者Windows server 2012，那么PowerShell 3.0已经内置了，可以升级为4.0。
+如果您的系统为Windows 8.1或者Windows server 2012 R2，那默认已经是4.0了</li>
+</ul>
+<h3 id="powershell_3">PowerShell的快捷键<a class="headerlink" href="#powershell_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ALT+F7</td>
+<td>清除命令的历史记录</td>
+</tr>
+<tr>
+<td>PgUp PgDn</td>
+<td>显示当前会话的第一个命令和最后一个命令</td>
+</tr>
+<tr>
+<td>Enter</td>
+<td>执行当前命令</td>
+</tr>
+<tr>
+<td>End</td>
+<td>将光标移至当前命令的末尾</td>
+</tr>
+<tr>
+<td>Del</td>
+<td>从右开始删除输入的命令字符</td>
+</tr>
+<tr>
+<td>Esc</td>
+<td>清空当前命令行</td>
+</tr>
+<tr>
+<td>F2</td>
+<td>自动补充历史命令至指定字符(例如历史记录中存在Get-Process，按F2，提示&rdquo;Enter char to copy up to&rdquo;，键入‘s’，自动补齐命令:Get-Proce)</td>
+</tr>
+<tr>
+<td>F4</td>
+<td>删除命令行至光标右边指定字符处</td>
+</tr>
+<tr>
+<td>F7</td>
+<td>对话框显示命令行历史记录</td>
+</tr>
+<tr>
+<td>F8</td>
+<td>检索包含指定字符的命令行历史记录</td>
+</tr>
+<tr>
+<td>F9</td>
+<td>根据命令行的历史记录编号选择命令，历史记录编号可以通过F7查看</td>
+</tr>
+<tr>
+<td>左/右方向键</td>
+<td>左右移动光标</td>
+</tr>
+<tr>
+<td>上/下方向键</td>
+<td>切换命令行的历史记录</td>
+</tr>
+<tr>
+<td>Home</td>
+<td>光标移至命令行最左端</td>
+</tr>
+<tr>
+<td>Backspace</td>
+<td>从右删除命令行字符</td>
+</tr>
+<tr>
+<td>Ctrl+C</td>
+<td>取消正在执行的命令</td>
+</tr>
+<tr>
+<td>Ctrl+左右方向键</td>
+<td>在单词之间移动光标</td>
+</tr>
+<tr>
+<td>Ctrl+Home</td>
+<td>删除光标最左端的所有字符</td>
+</tr>
+<tr>
+<td>Tab</td>
+<td>自动补齐命令或者文件名</td>
+</tr>
+</tbody>
+</table>
+<h3 id="powershell_4">PowerShell的管道和重定向<a class="headerlink" href="#powershell_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>管道指把上一条命令的输出作为下一条命令的输入 <code>ls |sort -descending Name</code></li>
+<li>重定向 把命令的输出保存到文件中‘&gt;’为覆盖，’&gt;&gt;’追加。<code>pwd &gt;test.txt</code></li>
+</ul>
+<h2 id="powershell_5">PowerShell交互式<a class="headerlink" href="#powershell_5" title="Permanent link">&para;</a></h2>
+<h3 id="_1">数学计算<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>我们可以把powershell当成一个计算器。象键入命令行那样输入数学表达式，回车，powershell会自动计算并把结果输出。常用的加减乘除模（+,-,*,/,%）运算和小括号表达式都支持</li>
+</ul>
+<h3 id="_2">执行外部命令<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>查看网络端口状态 <code>netstat</code></li>
+<li>查看IP配置 <code>ipconfig</code></li>
+<li>执行ls命令的方式：&amp;&rdquo;ls&rdquo; 或 ls</li>
+<li>启动外部程序 <code>notepad test.txt</code></li>
+</ul>
+<h3 id="cmdlets">命令集cmdlets<a class="headerlink" href="#cmdlets" title="Permanent link">&para;</a></h3>
+<ul>
+<li>cmdlets是Powershell的内部命令，cmdlet的类型名为System.Management.Automation.CmdletInfo，包含下列属性和方法</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>MemberType</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Equals</td>
+<td>Method</td>
+<td>bool Equals(System.Object obj)</td>
+</tr>
+<tr>
+<td>GetHashCode</td>
+<td>Method</td>
+<td>int GetHashCode()</td>
+</tr>
+<tr>
+<td>GetType</td>
+<td>Method</td>
+<td>type GetType()</td>
+</tr>
+<tr>
+<td>ToString</td>
+<td>Method</td>
+<td>string ToString()</td>
+</tr>
+<tr>
+<td>CommandType</td>
+<td>Property</td>
+<td>System.Management.Automation.CommandTypes CommandType {get;}</td>
+</tr>
+<tr>
+<td>DefaultParameterSet</td>
+<td>Property</td>
+<td>System.String DefaultParameterSet {get;}</td>
+</tr>
+<tr>
+<td>Definition</td>
+<td>Property</td>
+<td>System.String Definition {get;}</td>
+</tr>
+<tr>
+<td>HelpFile</td>
+<td>Property</td>
+<td>System.String HelpFile {get;}</td>
+</tr>
+<tr>
+<td>ImplementingType</td>
+<td>Property</td>
+<td>System.Type ImplementingType {get;}</td>
+</tr>
+<tr>
+<td>Module</td>
+<td>Property</td>
+<td>System.Management.Automation.PSModuleInfo Module {get;}</td>
+</tr>
+<tr>
+<td>ModuleName</td>
+<td>Property</td>
+<td>System.String ModuleName {get;}</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Property</td>
+<td>System.String Name {get;}</td>
+</tr>
+<tr>
+<td>Noun</td>
+<td>Property</td>
+<td>System.String Noun {get;}</td>
+</tr>
+<tr>
+<td>OutputType</td>
+<td>Property</td>
+<td>System.Collections.ObjectModel.ReadOnlyCollection`1[[System.Management.Automation.PSTypeName, System.Management.Automation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]] OutputType {get;}</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>Property</td>
+<td>System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Management.Automation.ParameterMetadata, System.Management.Automation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]] Parameters {get;}</td>
+</tr>
+<tr>
+<td>ParameterSets</td>
+<td>Property</td>
+<td>System.Collections.ObjectModel.ReadOnlyCollection`1[[System.Management.Automation.CommandParameterSetInfo, System.Management.Automation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]] ParameterSets {get;}</td>
+</tr>
+<tr>
+<td>PSSnapIn</td>
+<td>Property</td>
+<td>System.Management.Automation.PSSnapInInfo PSSnapIn {get;}</td>
+</tr>
+<tr>
+<td>Verb</td>
+<td>Property</td>
+<td>System.String Verb {get;}</td>
+</tr>
+<tr>
+<td>Visibility</td>
+<td>Property</td>
+<td>System.Management.Automation.SessionStateEntryVisibility Visibility {get;set;}</td>
+</tr>
+<tr>
+<td>DLL</td>
+<td>ScriptProperty</td>
+<td>text System.Object DLL {get=$this.ImplementingType.Assembly.Location;}</td>
+</tr>
+<tr>
+<td>HelpUri</td>
+<td>ScriptProperty</td>
+<td>System.Object HelpUri {get=try{# ok to cast CommandTypes enum to HelpCategory because string/indentifier for # cmdlet,function,filter,alias,externalscript is identical.# it is ok to fail for other enum values (i.e. for Application)<span><span class="MathJax_Preview">helpObject = get-help -Name (</span><script type="math/tex">helpObject = get-help -Name (</script></span>this.Name) -Category (<a href="this.CommandType)) -ErrorAction SilentlyContinue# return first non-null uri (and try not to hit any strict mode things) if (this.CommandType)) -ErrorAction SilentlyContinue# return first non-null uri (and try not to hit any strict mode things) if (helpObject -eq $null">string</a> { return <span><span class="MathJax_Preview">null }if (</span><script type="math/tex">null }if (</script></span>helpObject.psobject.properties[‘relatedLinks’] -eq $null) { return <span><span class="MathJax_Preview">null } if (</span><script type="math/tex">null } if (</script></span>helpObject.relatedLinks.psobject.properties[‘navigationLink’] -eq $null) { return $null } <span><span class="MathJax_Preview">helpUri = [string]</span><script type="math/tex">helpUri = [string]</script></span>( <span><span class="MathJax_Preview">helpObject.relatedLinks.navigationLink &#124; %{if (</span><script type="math/tex">helpObject.relatedLinks.navigationLink &#124; %{if (</script></span><em>.psobject.properties[‘uri’] -ne $null) { $</em>.uri } } &#124; ?{ $_ } &#124; select -first 1 )return $helpUri}catch {};}</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">别名<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>cmdlet 的名称由一个动词和一个名词组成，其功能对用户来讲一目了然。但是对于一个经常使用powershell命令的人每天敲那么多命令也很麻烦啊。能不能把命令缩短一点呢？于是“别名”就应运而生了。Powershell内部也实现了很多常用命令的别名。例如Get-ChildItem，列出当前的子文件或目录。它有两个别名：ls 和 dir，这两个别名来源于unix 的shell和windows的cmd。
+因此别名有两个作用：</li>
+<li>继承：继承unix-shell和windows-cmd。</li>
+<li>方便：方便用户使用。</li>
+<li>获取某个别名的cmdlets名称<code>Get-Alias -name pwd</code></li>
+<li>获取可用的别名<code>dir alias: | where {$_.Definition.Startswith("Remove")}</code></li>
+<li>设置自己的别名<code>Set-Alias -Name Edit -Value notepad</code></li>
+<li>导入导出自己的别名 <code>Export-Alias alias.ps1</code> <code>Import-Alias -Force alias.ps1</code></li>
+</ul>
+<h2 id="powershell_6">PowerShell变量<a class="headerlink" href="#powershell_6" title="Permanent link">&para;</a></h2>
+<h3 id="powershell_7">PowerShell定义变量<a class="headerlink" href="#powershell_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>以$符开头命名变量 <code>$a="1" ${a+1}="2"</code></li>
+<li>变量值互换 <code>$a,$b=$b,$a</code></li>
+<li>查看在用的变量 <code>ls variable:a*</code></li>
+<li>使用专门的变量命令<code>New-Variable num -Value 100 -Force -Option readonly</code></li>
+</ul>
+<h3 id="_4">自动化变量<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Powershell 自动化变量 是那些一旦打开Powershell就会自动加载的变量。
+这些变量一般存放的内容包括<ol>
+<li>用户信息：例如用户的根目录$home</li>
+<li>配置信息:例如powershell控制台的大小，颜色，背景等。</li>
+<li>运行时信息：例如一个函数由谁调用，一个脚本运行的目录等</li>
+</ol>
+</li>
+<li>详细说明<ol>
+<li>&#36;&#36; 包含会话所收到的最后一行中的最后一个令牌。</li>
+<li>&#36;? 包含最后一个操作的执行状态。如果最后一个操作成功，则包含 TRUE，失败则包含 FALSE。</li>
+<li>&#36;^ 包含会话所收到的最后一行中的第一个令牌。</li>
+<li>&#36;_ 包含管道对象中的当前对象。在对管道中的每个对象或所选对象执行操作的命令中，可以使用此变量。</li>
+<li>&#36;Args 包含由未声明参数和/或传递给函数、脚本或脚本块的参数值组成的数组。在创建函数时可以声明参数，方法是使用 param 关键字或在函数名称后添加以圆括号括起、逗号分隔的参数列表。</li>
+<li>&#36;ConsoleFileName 包含在会话中最近使用的控制台文件 (.psc1) 的路径。在通过 PSConsoleFile 参数启动Windows PowerShell 或使用 Export-Console cmdlet 将管理单元名称导出到控制台文件时，将填充此变量。在使用不带参数的 Export-Console cmdlet 时，它自动更新在会话中最近使用的控制台文件。可以使用此自动变量确定要更新的文件</li>
+<li>&#36;Error 包含错误对象的数组，这些对象表示最近的一些错误。最近的错误是该数组中的第一个错误对象(&#36;Error[0])。</li>
+<li>&#36;Event 包含一个 PSEventArgs 对象，该对象表示一个正在被处理的事件。此变量只在事件注册命令（例如 Register-ObjectEvent）的 Action 块内填充。此变量的值是 Get-Event cmdlet 返回的同一个对象。因此，可以在 Action 脚本块中使用 &#36;Event 变量的属性（例如&#36;Event.TimeGenerated）。</li>
+<li>&#36;Home 包含用户的主目录的完整路径。此变量等效于 %homedrive%%homepath% 环境变量。</li>
+<li>&#36;Host 包含一个对象，该对象表示 Windows PowerShell 的当前主机应用程序。可以使用此变量在命令中表示当前主机，或者显示或更改主机的属性，如 <code>$Host.version、$Host.CurrentCulture或 $host.ui.rawui.setbackgroundcolor(“Red”)</code>。</li>
+<li>&#36;Profile包含当前用户和当前主机应用程序的 Windows PowerShell 配置文件的完整路径。可以在命令中使用此变量表示配置文件。例如，可以在命令中使用此变量确定是否已创建某个配置文件：</li>
+</ol>
+</li>
+</ul>
+<h3 id="_5">环境变量<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>传统的控制台一般没有象Powershell这么高级的变量系统。它们都是依赖于机器本身的环境变量，进行操作 。环境变量对于powershell显得很重要，因为它涵盖了许多操作系统的细节信息。此外，powershell中的变量只存在于powershell内部的会话中，一旦powershell关闭，这些变量就会自生自灭。但是如果环境变量被更新了，它会继续保存在操作系统中，即使其它程序也可以调用它。</li>
+<li>通过环境变量读取Windows操作系统的安装路径，和默认应用程序的安装路径。<ul>
+<li>操作系统的安装目录<code>$env:windir</code> </li>
+<li>引用程序的安装目录<code>$env:ProgramFiles</code></li>
+</ul>
+</li>
+<li>操作环境变量<ul>
+<li>查看所有环境变量 <code>ls $env:</code></li>
+<li>创建新的环境变量 <code>$env:xx="xx"</code></li>
+<li>删除环境变量  <code>del $env:xx</code></li>
+<li>这样直接操作环境变量，会不会不安全？事实上很安全，因为$env：中的环境变量只是机器环境变量的一个副本，即使你更改了它，下一次重新打开时，又会恢复如初。（.NET方法更新环境变量除外）</li>
+<li>.NET方法更新环境变量
+<code>[environment]::SetEnvironmentvariable("a", "newval", "User")</code>
+<code>[environment]::GetEnvironmentvariable("a", "User")</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="_6">驱动器变量<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Powershell中所有不是我们自己的定义的变量都属于驱动器变量（比如环境变量），它的前缀只是提供给我们一个可以访问信息的虚拟驱动器.。例如env:windir，象env：驱动器上的一个”文件”，我们通过$访问它，就会返回”文件”的内容。</li>
+<li>直接访问文件路径。通过驱动器直接访问文件路径，也支持物理驱动器，必须把文件路径放在封闭的大括号中，因为正常的文件路径包含两个特殊字符“:”和“”，有可能会被powershell解释器误解。
+Invoke-Expression &ldquo;&#96;&#36;{&#36;env:HOMEDRIVE/Powershell/ping.bat}&rdquo;
+注：因为反引号”&#96;”放在&#36;前，会把&#36;解析成普通字符，解释器会继续去解析第二个$，发现env&#58;HOMEDRIVE，将其替换成c，到此 Invoke-Expression的参数就变成了&#36;{C:/Powershell/ping.bat},继续执行这个表达式就可以了。查看Powershell支持的驱动器，可以使用Get-PSDrive查看。</li>
+<li>定义function和调用
+<code>function hellow(){ Write-Host "Hellow,Powershell" }</code>
+<code>$function:hellow</code></li>
+<li>特殊的变量：子表达式
+<code>"The size of Powershell_Cmdlets.html is $($file.Length)"</code></li>
+</ul>
+<h3 id="powershell_8">PowerShell变量的作用域<a class="headerlink" href="#powershell_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Powershell所有的变量都有一个决定变量是否可用的作用域。Powershell支持四个作用域：全局、当前、私有和脚本。有了这些作用域就可以限制变量的可见性了，尤其是在函数和脚本中。</li>
+<li>变量的作用域分4中：<ul>
+<li>&#36;global:
+全局变量，在所有的作用域中有效，如果你在脚本或者函数中设置了全局变量，即使脚本和函数都运行结束，这个变量也任然有效。</li>
+<li>&#36;script
+脚本变量，只会在脚本内部有效，包括脚本中的函数，一旦脚本运行结束，这个变量就会被回收。</li>
+<li>&#36;private
+私有变量，只会在当前作用域有效，不能贯穿到其他作用域。</li>
+<li>&#36;local
+默认变量，可以省略修饰符，在当前作用域有效，其它作用域只对它有只读权限。</li>
+</ul>
+</li>
+<li>打开Powershell控制台后，Powershell会自动生成一个新的全局作用域。如果增加了函数和脚本，或者特殊的定义，才会生成其它作用域。在当前控制台，只存在一个作用域，通过修饰符访问，其实访问的是同一个变量：</li>
+<li>当调用一个已定义的函数，Powershell会生成第二个作用域，它可以对调用者的作用域中的变量执行读操作，但是不能执行写操作</li>
+</ul>
+<h3 id="powershell_9">PowerShell变量的类型和强类型<a class="headerlink" href="#powershell_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>获取类型
+<code>(1.2).GetType().Name</code></li>
+<li>默认支持的类型
+<code>[array],[bool],[byte],[char],[datetime],[decimal],[double],[guid],[hashtable],[int16],[int32],[int],[int64],[long],[nullable],[psobject],[regex],[sbyte].[scriptblock],[single],[float],[string],[switch],[timespan],[type],[uint16],[uint32],[uint64],[ XML ]</code></li>
+</ul>
+<h3 id="powershell_10">PowerShell变量的幕后管理<a class="headerlink" href="#powershell_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>在Powershell中创建一个变量，会在后台生成一个PSVariable对象，这个对象不仅包含变量的值，也包含变量的其它信息，例如”只写保护”这样的描述。
+如果在Powershell中输出一个变量，只会输出这个变量的值。不能够显示它的其它信息，如果想查看一个变量的其它保留信息，就需要变量的基类PSVariable对象，这个可以通过<code>Get-Variable</code>命令得到，下面的例子演示如何查看一个变量的全部信息。</li>
+<li>获取变量的详细信息
+<code>Get-Variable a | fl *</code></li>
+<li>变量的选型
+<code>$var="test"</code>
+<code>Set-Variable var -Option "ReadOnly"</code></li>
+<li>变量的选项<ul>
+<li>“None”:默认设置</li>
+<li>“ReadOnly”：变量只读，但是可以通过-Force 选项更新。</li>
+<li>“Constant”：常量一旦声明，在当前控制台不能更新。</li>
+<li>“Private”:只在当前作用域可见，不能贯穿到其它作用域</li>
+<li>“AllScope”：全局，可以贯穿于任何作用域</li>
+</ul>
+</li>
+<li>变量的内容验证<ul>
+<li>ValidateNotNullAttribute：限制变量不能为空</li>
+<li>ValidateNotNullOrEmptyAttribute：限制变量不等为空，不能为空字符串，不能为空集合</li>
+<li>ValidatePatternAttribute:限制变量要满足制定的正则表达式</li>
+<li>ValidateRangeAttribute：限制变量的取值范围</li>
+<li>ValidateSetAttribute：限制变量的取值集合
+<code>$a=123  $validate=New-Object ValidateNotNull  (Get-Variable a).Attributes.Add($validate)</code>
+<code>$a=$null</code> 报错</li>
+</ul>
+</li>
+</ul>
+<h2 id="powershell_11">PowerShell数组和哈希表<a class="headerlink" href="#powershell_11" title="Permanent link">&para;</a></h2>
+<h3 id="powershell_12">PowerShell命令返回数组<a class="headerlink" href="#powershell_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>保存命令返回的数组 <code>$ip=ipconfig</code></li>
+<li>判断对象是否为数组 <code>$ip -is [array]</code></li>
+<li>使用管道对数组进一步处理 <code>ipconfig | Select-String "IP"</code></li>
+<li>使用真正的对象操作：ipconfig只是简单的字符串，若用ls，将看到复杂对象的数组。
+<code>$result=ls  $result[0] |format-list *</code></li>
+</ul>
+<h3 id="powershell_13">PowerShell命令创建数组<a class="headerlink" href="#powershell_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>创建数组的方式 <code>$nums=1,2,3  $nums=1..5  $nums=1,"123",(get-date)</code></li>
+<li>创建空数组和一个元素的数组 <code>$nums=@() $nums=,"single"</code></li>
+</ul>
+<h3 id="powershell_14">PowerShell访问数组<a class="headerlink" href="#powershell_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li>通过下标索引访问 <code>$nums[1,2,3]</code></li>
+<li>逆序输出 <code>$nums[$nums.count..1]</code></li>
+<li>增加数组元素 <code>$nums+=4</code></li>
+</ul>
+<h3 id="powershell_15">PowerShell数组的复制<a class="headerlink" href="#powershell_15" title="Permanent link">&para;</a></h3>
+<p><strong>数组是引用类型，复制时只复制一个引用</strong></p>
+<h3 id="_7">强类型数组<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>**[int[]] $nums=@()**这个数组只支持int类型</p>
+<h3 id="powershellhash">PowerShell使用Hash表<a class="headerlink" href="#powershellhash" title="Permanent link">&para;</a></h3>
+<ul>
+<li>哈希表存放的是对，在哈希表中不再仅仅限制使用数字寻址，可以使用任意类型的数据类型寻址。</li>
+<li>创建哈希表之前使用@()创建数组，现在使用@{}创建哈希表，使用哈希表的键访问对应的值。</li>
+<li>在哈希表中插入新的键值很方便，象定义变量一样，可以直接拿来使用 $stu.Name=&rdquo;刘备&rdquo;</li>
+<li>删除操作:$stu.remove(&lsquo;Name&rsquo;)</li>
+<li>使用哈希表格式化输出
+<code>$column1 = @{expression="Name"; width=30;label="filename"; alignment="left"}</code>
+<code>$column2 = @{expression="LastWriteTime"; width=40;label="last modification"; alignment="right"}</code>
+<code>ls | format-table $column1,$column2</code></li>
+</ul>
+<h2 id="powershell_16">PowerShell管道<a class="headerlink" href="#powershell_16" title="Permanent link">&para;</a></h2>
+<h3 id="_8">使用管道<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>举例：<code>ls | Sort-Object -Descending Name | Select-Object Name,Length,LastWriteTime | ConvertTo-Html | Out-File ls.html</code></li>
+</ul>
+<h3 id="powershell_17">PowerShell对象转为文本<a class="headerlink" href="#powershell_17" title="Permanent link">&para;</a></h3>
+<ul>
+<li>怎样将Powershell的对象结果转换成文本并显示在控制台上。Powershell已经内置Out-Default命令追加在管道的命令串的末尾。因此你使用dir 和dir | out-default的结果是相同的。</li>
+<li>Out-Default可以将对象转换成可视的文本。事实上Out-Default会首先调用Format-Table，将更多的属性默认隐藏。再调用Out-Host将结果输出在控制台上。因此下面的三组命令执行结果是相同的。<code>dir dir|out-default  dir|format-table|out-host</code></li>
+<li>显示隐藏的对象属性<code>ls|format-table *</code> 
+属性文字较多时，支持换行<code>ls|format-table * -wrap</code></li>
+<li>修改列标题
+<code>$column = @{Expression={ [int]($_.Length/1KB) }; Label="KB" }</code>
+<code>Dir | Format-Table Name, $column</code></li>
+<li>优化列宽度
+<code>ls |format-table -autosize</code></li>
+</ul>
+<h3 id="powershell_18">PowerShell对结果进行排序和分组<a class="headerlink" href="#powershell_18" title="Permanent link">&para;</a></h3>
+<ul>
+<li>使用Sort-Object和Group-Object可以对管道结果进行分组。
+其实每条命令执行后的结果已经排过序了。例如通过ls 查看文件列表，默认会根据Name属性进行排序，但是你可以通过指定属性进行排序例如：
+<code>dir|Sort-Object @{expression="length";descending=$true},@{expression="name";descending=$true}</code></li>
+<li>使用分组<ul>
+<li><code>Get-Process | Group-Object Company -NoElement</code></li>
+<li><code>Dir | Sort-Object Extension, Name | Format-Table -groupBy Extension</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="powershell_19">PowerShell过滤管道结果<a class="headerlink" href="#powershell_19" title="Permanent link">&para;</a></h3>
+<ul>
+<li>通过where-object 
+<code>get-service | Where-Object {$_.Status -eq "Running"}</code></li>
+<li>选择对象的属性
+<code>Get-WmiObject Win32_UserAccount -filter "LocalAccount=True AND Name='guest'"</code></li>
+<li>获取占用CPU最大的5个进程
+<code>get-process | sort -Descending cpu | select -First 5</code></li>
+<li>逐个处理所有管道结果
+<code>ls | ForEach-Object {"文件名：{0} 文件大小{1}KB: " -f $_.Name,($_.length/1kb).tostring()}</code></li>
+</ul>
+<h3 id="powershell_20">PowerShell分析和比较管道<a class="headerlink" href="#powershell_20" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Measure-Object允许指定待统计对象的属性
+<code>ls | measure length -Average -Sum -Maximum -Minimum</code></li>
+<li>有时需要比较前后两个时间段开启了那些进程，服务状态有什么变化。类似这样的工作可以交给Compare-Object。比较不同的时间段可以先将所有开启的进程信息快照保存到一个变量中，过一段时间，再保存一份新的进程快照，然后就可以通过Compare-Object进行对比了。
+<code>$s1=Get-Service wsearch</code>
+<code>$s1.stop()</code>
+<code>$s2=Get-Service wsearch</code>
+<code>Compare-Object $s1 $2 -property status,name</code>
+<strong>=&gt;表示新增的对象</strong></li>
+<li>保存快照以便后期使用
+<code>Get-Process  | Export-Clixml before.xml</code>
+<code>$before=Import-Clixml .before.xml</code>
+<code>$after=Get-Process</code>
+<code>Compare-Object -ReferenceObject $before -DifferenceObject $after</code></li>
+</ul>
+<h3 id="powershell_21">PowerShell导出管道结果<a class="headerlink" href="#powershell_21" title="Permanent link">&para;</a></h3>
+<ul>
+<li>获取导出的命令 <code>get-command -verb out</code></li>
+<li>导出类型<ul>
+<li>Out-Default 将输出发送到默认的格式化程序和默认的输出 cmdlet。</li>
+<li>Out-File 将输出发送到文件。</li>
+<li>Out-GridView 将输出发送到单独窗口中的交互表。</li>
+<li>Out-Host 将输出发送到命令行。</li>
+<li>Out-Null 删除输出，不将其发送到控制台。</li>
+<li>Out-Printer 将输出发送到打印机。</li>
+<li>Out-String 将对象作为一列字符串发送到主机。</li>
+</ul>
+</li>
+</ul>
+<h3 id="ets">拓展类型系统（ETS）<a class="headerlink" href="#ets" title="Permanent link">&para;</a></h3>
+<h2 id="powershell_22">PowerShell使用对象<a class="headerlink" href="#powershell_22" title="Permanent link">&para;</a></h2>
+<h3 id="powershell_23">PowerShell对象=属性+方法<a class="headerlink" href="#powershell_23" title="Permanent link">&para;</a></h3>
+<ul>
+<li>在现实世界中，你可能已经了解对象就是那些能够摸到的东西。Powershell中的对象和现实生活很相似。例如要在现实生活中描述一把小刀。我们可能会分两方面描述它<ul>
+<li>属性一把小刀拥有一些特殊的属性，比如它的颜色、制造商、大小、刀片数。这个对象是红色的，重55克，有3个刀片，ABC公司生产的。因此属性描述了一个对象是什么。</li>
+<li>方法可以使用这个对象做什么，比如切东西、当螺丝钉用、开啤酒盖。一个对象能干什么就属于这个对象的方法。</li>
+</ul>
+</li>
+<li>例子<ul>
+<li>创建对象
+<code>$pocketknife=New-Object object</code></li>
+<li>增加属性
+<code>Add-Member -InputObject $pocketknife -Name Color -Value "Red" -MemberType NoteProperty</code></li>
+<li>增加方法
+<code>Add-Member -memberType ScriptMethod -In $pocketknife -name cut -Value { "I'm whittling now" }</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="powershell_24">PowerShell属性：描述对象是什么<a class="headerlink" href="#powershell_24" title="Permanent link">&para;</a></h3>
+<ul>
+<li>属性可以描述一个对象，对象的属性可以被Powershell自动转换成文本，并且输出到控制台。因此可以通过这种方法查看任何对象，例如$host:</li>
+<li>查看对象的所有属性
+<code>$host | Get-Member -memberType property</code></li>
+</ul>
+<h3 id="powershell_25">PowerShell方法：描述对象能做什么<a class="headerlink" href="#powershell_25" title="Permanent link">&para;</a></h3>
+<ul>
+<li>方法定义了一个对象可以做什么事情。当你把一个对象输出在控制台时，它的属性可能会被转换成可视的文本。但是它的方法却不可见。列出一个对象的所有方法可是使用Get-Member命令，给“MemeberType”参数 传入“Method”:
+<code>$Host | Get-Member -MemberType Method</code></li>
+</ul>
+<h2 id="powershell_26">PowerShell条件判断<a class="headerlink" href="#powershell_26" title="Permanent link">&para;</a></h2>
+<h2 id="powershell_27">PowerShell循环<a class="headerlink" href="#powershell_27" title="Permanent link">&para;</a></h2>
+<h2 id="powershell_28">PowerShell函数<a class="headerlink" href="#powershell_28" title="Permanent link">&para;</a></h2>
+<h2 id="powershell_29">PowerShell脚本<a class="headerlink" href="#powershell_29" title="Permanent link">&para;</a></h2>
+<h3 id="_9">使用脚本<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>编写脚本<code>@'........'@</code></li>
+<li>启动脚本<code>.\myscript.ps1</code></li>
+</ul>
+<h3 id="_10"><a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<h2 id="powershell_30">PowerShell<a href="https://www.pstips.net/powershell-commands-return-arrays.html">学习网站</a><a class="headerlink" href="#powershell_30" title="Permanent link">&para;</a></h2>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../tools-docker/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Docker
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../test-tdd/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              TDD
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            本页面版权由宝爸暂代为管理
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>
