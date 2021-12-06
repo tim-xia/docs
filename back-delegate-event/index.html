@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="http://srap.top.com/rssreader/">
+        <link rel="canonical" href="http://srap.top.com/back-delegate-event/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
     
     
       
-        <title>Rssreader - 小蹊宝博客</title>
+        <title>委托事件 - 小蹊宝博客</title>
       
     
     
@@ -64,6 +64,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -90,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Rssreader
+              委托事件
             
           </span>
         </div>
@@ -545,12 +550,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       <label class="md-nav__link" for="__nav_5">
         后端
@@ -566,12 +573,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" checked>
       
       <label class="md-nav__link" for="__nav_5_1">
         语言
@@ -587,12 +596,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_1" type="checkbox" id="__nav_5_1_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_1" type="checkbox" id="__nav_5_1_1" checked>
       
       <label class="md-nav__link" for="__nav_5_1_1">
         C#
@@ -608,11 +619,21 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../back-delegate-event/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         委托事件
       </a>
+      
     </li>
   
 
@@ -1461,15 +1482,68 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Rssreader</h1>
-                
-                
+                <div class="toc">
+<ul>
+<li><a href="#_1">委托的介绍</a></li>
+<li><a href="#_2">事件</a></li>
+<li><a href="#observer">委托、事件与Observer设计模式</a></li>
+<li><a href="#_3">委托事件的解惑</a></li>
+</ul>
+</div>
+<h1 id="_1">委托的介绍<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<ol>
+<li>委托是一个类，它定义了方法的类型，使得可以将方法当作另一个方法的参数来进行传递，这种将方法动态赋给参数的做法，可以避免在程序中大量使用分支语句，同时系统也有很多的拓展性</li>
+<li>使用委托可以将多个方法绑定到同一个委托变量，当调用此变量时（此时说调用，是因为此变量代表一个方法），可以依次调用所有绑定的方法</li>
+</ol>
+<h1 id="_2">事件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<ol>
+<li>事件至于委托，类似字符串类型中字段和属性的关系</li>
+<li>声明一个事件类似于声明一个进行了封装的委托类型的变量，这个变量即便被声明为public，也会被定义为private.</li>
+<li>实际使用时，之所有用事件而不用委托： 主要是考虑安全性</li>
+</ol>
+<h1 id="observer">委托、事件与Observer设计模式<a class="headerlink" href="#observer" title="Permanent link">&para;</a></h1>
+<ul>
+<li>实现热水器温度监控，触发报警器和显示器 <a href="http://srap.store:180/share/delegatedemo">项目</a></li>
+</ul>
+<h1 id="_3">委托事件的解惑<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<ol>
+<li>为什么要使用事件而不是委托变量
+    <em>除了封装性、易用性考虑外，最重要的一点是：事件应该由事件发布者触发，而不应该由客户端触发</em></li>
+<li>为什么委托定义的返回值通常都是void<ol>
+<li>委托变量可供多个订阅者注册，如果定义了返回值，那么多个订阅者的方法都会向发布者返回数值，后值会覆盖前值，结果只能取到最后一个方法的返回值</li>
+<li>发布者和订阅者是松耦合的，发布者不关心谁订阅了他，为什么订阅，因而也不会关系订阅者的返回值</li>
+</ol>
+</li>
+<li>如何让事件只允许一个客户订阅
+    <em>使用等于号赋值</em></li>
+<li>获得多个返回值与异常处理
+    通过*delegate.GetInvocationList()<em>获取订阅的方法列表，再通过向下强制转换或调用*DynamicInvoke</em></li>
+<li>委托中订阅者方法超时的处理
+    使用*BeginInvoke*进行异步调用</li>
+</ol>
                 
               
               
@@ -1485,6 +1559,39 @@
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../front-frm-weuiwork/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              企业微信UI
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../db-mongodb/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              mongodb
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
