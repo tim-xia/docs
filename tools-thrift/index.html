@@ -1663,14 +1663,16 @@
                 <div class="toc">
 <ul>
 <li><a href="#thrift">Thrift简介</a></li>
-<li><a href="#thrift_1">Thrift安装使用</a></li>
+<li><a href="#thrift_1">Thrift安装</a></li>
+<li><a href="#thrifthelloworld">Thrift的HelloWorld</a></li>
+<li><a href="#thrift_2">Thrift的应用场景</a></li>
 </ul>
 </div>
 <h1 id="thrift">Thrift简介<a class="headerlink" href="#thrift" title="Permanent link">&para;</a></h1>
 <ol>
+<li>远程过程调用框架（RPC）</li>
+<li>Facebook为了实现“大规模跨语言服务开发”而开发</li>
 <li>接口描述语言和二进制通讯协议  *.thrift</li>
-<li>被用于远程过程调用RPC框架使用 </li>
-<li>Facebook为了实现“大规模跨语言服务开发”而开发 </li>
 <li>包含一套完整的栈来创建客户端和服务端程序</li>
 <li>Thrift支持众多通讯协议：如
     <strong>TBinaryProtocol</strong>  <em>一种简单的二进制格式，简单，但没有为空间效率而优化。比文本协议处理起来更快，但更难于调试</em>
@@ -1695,13 +1697,84 @@
 <li>应用层通讯格式与序列化层通讯格式是完全分离的。它们都可以独立修改</li>
 </ul>
 </li>
+<li>缺点<ul>
+<li>没有官方文档</li>
+<li>Thrift 序列化二进制不可读，调试相对困难</li>
+<li>Thrift 的序列化和框架紧耦合，无法支持向持久层直接读写数据，所以不适合做数据持久化协议</li>
+<li>RPC 在 0.6.1 升级到 0.7.0 是不兼容的</li>
+<li>buf fix 和更新不积极，维护成本过高</li>
+</ul>
+</li>
+<li>对比：Protobuf（Google）<ul>
+<li>protobuf只提供序列化，protobuf序列化后数据量相对少，非常适合应用层对象的持久化场景</li>
+<li>Thrift提供一站式解决：提供序列化+RPC</li>
+</ul>
+</li>
 </ol>
-<h1 id="thrift_1">Thrift安装使用<a class="headerlink" href="#thrift_1" title="Permanent link">&para;</a></h1>
+<h1 id="thrift_1">Thrift安装<a class="headerlink" href="#thrift_1" title="Permanent link">&para;</a></h1>
 <ol>
 <li><a href="https://thrift.apache.org/download">Thrift下载地址</a> <a href="http://archive.apache.org/dist/thrift/">版本库</a></li>
-<li>配置环境变量 <img alt="alt看图" src="/img/thrift-version.png" /></li>
-<li></li>
+<li>配置环境变量 <img alt="alt看图" src="../img/thrift-version.png" /></li>
+<li>
+<p>Thrift的架构实现
+<img alt="alt架构图示" src="../img/thrift-framework.png" /></p>
+<ol>
+<li>thrift文件定义数据结构和服务接口</li>
+<li>代码生成器生成若干符合约定通信格式的代码</li>
+<li>thrift应用框架：包括thrift自身提供的库函数</li>
+<li>第三方库：按照运行的模式，生成的代码中可能需要调用第三方库</li>
+<li>Thrift实际上是实现了C/S模式，代码生成工具通过接口定义文件，生成服务器端和客户端代码（可以为不同语言），从而实现服务端和客户端跨语言的支持</li>
 </ol>
+</li>
+<li>
+<p>Thrift Types</p>
+</li>
+<li>
+<p>Base Types</p>
+<ul>
+<li>bool: A boolean value (true or false)</li>
+<li>byte: An 8-bit signed integer</li>
+<li>i16: A 16-bit signed integer</li>
+<li>i32: A 32-bit signed integer</li>
+<li>i64: A 64-bit signed integer</li>
+<li>double: A 64-bit floating point number</li>
+<li>string: A text string encoded using UTF-8 encoding</li>
+</ul>
+</li>
+<li>
+<p>Special Types</p>
+<ul>
+<li>
+<p>binary: a sequence of unencoded bytes</p>
+</li>
+<li>
+<p>N.B.: This is currently a specialized form of the string type above, added to provide better interoperability with Java. The current plan-of-record is to elevate this to a base type at some point.</p>
+</li>
+<li>Structs
+Thrift structs define a common object – they are essentially equivalent to classes in OOP languages, but without inheritance. A struct has a set of strongly typed fields, each with a unique name identifier. Fields may have various annotations (numeric field IDs, optional default values, etc.) that are described in the Thrift IDL.</li>
+</ul>
+</li>
+<li>
+<p>Containers</p>
+<ul>
+<li>list: An ordered list of elements. Translates to an STL vector, Java ArrayList, native arrays in scripting languages, etc.</li>
+<li>set: An unordered set of unique elements. Translates to an STL set, Java HashSet, set in Python, etc. Note: PHP does not support sets, so it is treated similar to a List</li>
+<li>map<type1,type2>: A map of strictly unique keys to values. Translates to an STL map, Java HashMap, PHP associative array, Python/Ruby dictionary, etc. While defaults are provided, the type mappings are not explicitly fixed. Custom code generator directives have been added to allow substitution of custom types in various destination languages.</li>
+</ul>
+</li>
+</ol>
+<h1 id="thrifthelloworld">Thrift的HelloWorld<a class="headerlink" href="#thrifthelloworld" title="Permanent link">&para;</a></h1>
+<p><img alt="alt架构图示" src="../img/thrift-system.png" />
+* 编写 hello.thrift
+* 生成 <code>thrift --gen netstd hello.thrift</code></p>
+<p>实现HelloWorld，进行通信。</p>
+<h1 id="thrift_2">Thrift的应用场景<a class="headerlink" href="#thrift_2" title="Permanent link">&para;</a></h1>
+<ul>
+<li>当我想开发一个快速计算的RPC服务，它主要通过接口函数getInt对外提供服务;</li>
+<li>这个RPC服务的getInt函数使用用户传入的参数，经过复杂的计算，计算出一个整形值返回给用户；</li>
+<li>服务器端使用java语言开发，而调用客户端可以是java、c、python等语言开发的程序，在这种应用场景下，我们只需要使用Thrift的IDL描述一下getInt函数（以.thrift为 后缀的文件），然后使用Thrift的多语言编译功能，将这个IDL文件编译成C、java、python几种语言对应的“特定语言接口文件”（每种语言只需要一条简单的命令即可编译完成）</li>
+<li>这样拿到对应语言的“特定语言接口文件”之后，就可以开发客户端和服务器端的代码了，开发过程中只要接口不变，客户端和服务器端的开发可以独立的进行</li>
+</ul>
                 
               
               
